@@ -13,11 +13,20 @@ config_version=5
 config/name="Assignment 2 & 3"
 run/main_scene="uid://dtkaookv54wgq"
 config/features=PackedStringArray("4.4", "Mobile")
+run/max_fps=1000
 config/icon="res://icon.svg"
 
 [debug]
 
 settings/stdout/print_fps=true
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/proton_scatter/plugin.cfg")
+
+[filesystem]
+
+import/blender/enabled=false
 
 [input]
 

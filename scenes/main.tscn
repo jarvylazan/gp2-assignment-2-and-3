@@ -1,15 +1,13 @@
-[gd_scene load_steps=18 format=3 uid="uid://dtkaookv54wgq"]
+[gd_scene load_steps=16 format=3 uid="uid://dtkaookv54wgq"]
 
 [ext_resource type="Script" uid="uid://cli8w5up6kf1v" path="res://scripts/change_resolution.gd" id="1_eb6dy"]
 [ext_resource type="Texture2D" uid="uid://kfhw8xqoioro" path="res://assets/qwantani_noon_puresky_2k.hdr" id="1_tbgi4"]
-[ext_resource type="Texture2D" uid="uid://dfkkul8dmnwmb" path="res://assets/plankflooring/plank_flooring_diff_1k.png" id="2_tefeu"]
-[ext_resource type="Texture2D" uid="uid://josw2tgtt4qo" path="res://assets/plankflooring/plank_flooring_ao_1k.png" id="3_o6xl0"]
-[ext_resource type="Texture2D" uid="uid://b3iv7ykw4221y" path="res://assets/plankflooring/plank_flooring_nor_gl_1k.png" id="4_tipki"]
-[ext_resource type="Texture2D" uid="uid://dvaydp0k05jh7" path="res://assets/plankflooring/plank_flooring_rough_1k.png" id="5_85g3d"]
+[ext_resource type="Texture2D" uid="uid://lh47t8sysamv" path="res://assets/forest_ground_04_4k/textures/forest_ground_04_diff_4k.png" id="3_tipki"]
 [ext_resource type="Script" uid="uid://dp6r1yxi4xh7t" path="res://camera/free_look_camera.gd" id="6_tefeu"]
 [ext_resource type="PackedScene" uid="uid://b6olu2cfm8on2" path="res://scenes/tree.tscn" id="7_o6xl0"]
 [ext_resource type="MeshLibrary" uid="uid://d1v48f05i0a2n" path="res://world/geometrymeshes.tres" id="8_tipki"]
 [ext_resource type="Script" uid="uid://iht3err0y2wp" path="res://scripts/performance_tracker.gd" id="9_85g3d"]
+[ext_resource type="PackedScene" uid="uid://dmwebu8t5ldal" path="res://scenes/cliff.tscn" id="9_choun"]
 [ext_resource type="PackedScene" uid="uid://sr7j2rsknn7v" path="res://scenes/cabin.tscn" id="11_ya4ey"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_choun"]
@@ -25,22 +23,19 @@ tonemap_mode = 2
 ssr_enabled = true
 glow_enabled = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_trceg"]
-albedo_texture = ExtResource("2_tefeu")
-roughness_texture = ExtResource("5_85g3d")
-normal_enabled = true
-normal_texture = ExtResource("4_tipki")
-ao_enabled = true
-ao_texture = ExtResource("3_o6xl0")
-uv1_scale = Vector3(250, 250, 250)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_85g3d"]
+albedo_color = Color(0.41598, 0.41598, 0.41598, 1)
+albedo_texture = ExtResource("3_tipki")
+uv1_scale = Vector3(800, 800, 800)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_a8y0u"]
-material = SubResource("StandardMaterial3D_trceg")
-top_radius = 350.0
-bottom_radius = 400.0
+lightmap_size_hint = Vector2i(12568, 4254)
+material = SubResource("StandardMaterial3D_85g3d")
+top_radius = 260.0
+bottom_radius = 300.0
 height = 50.0
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_ya4ey"]
+[sub_resource type="MultiMesh" id="MultiMesh_o6xl0"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_eb6dy")
@@ -59,13 +54,10 @@ mesh = SubResource("CylinderMesh_a8y0u")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 56.2584, 0)
 script = ExtResource("6_tefeu")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D"]
-mesh = SubResource("CapsuleMesh_ya4ey")
-
 [node name="Trees" type="Node3D" parent="."]
 
 [node name="Tree" parent="Trees" instance=ExtResource("7_o6xl0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24.9529, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0316315, 24.9791, 0.0112038)
 
 [node name="Tree2" parent="Trees" instance=ExtResource("7_o6xl0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24.9529, 4.45071)
@@ -83,22 +75,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.3868, 24.9529, 4.45071)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.3868, 24.9529, -4.50971)
 
 [node name="Tree7" parent="Trees" instance=ExtResource("7_o6xl0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.65136, 25.0571, 17.133)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0145, 25.0571, 17.133)
 
 [node name="Tree8" parent="Trees" instance=ExtResource("7_o6xl0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.65136, 25.0571, 21.5837)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0145, 25.0571, 21.5837)
 
 [node name="Tree9" parent="Trees" instance=ExtResource("7_o6xl0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.65136, 25.0571, 12.6233)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0145, 25.0571, 12.6233)
 
 [node name="Tree10" parent="Trees" instance=ExtResource("7_o6xl0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.0381, 25.0571, 17.133)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.9437, 25.0571, 15.0578)
 
 [node name="Tree11" parent="Trees" instance=ExtResource("7_o6xl0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.0381, 25.0571, 21.5837)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.9437, 25.0571, 19.5085)
 
 [node name="Tree12" parent="Trees" instance=ExtResource("7_o6xl0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.0381, 25.0571, 12.6233)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.9437, 25.0571, 10.5481)
 
 [node name="GridMap" type="GridMap" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24.953, 0)
@@ -144,3 +136,102 @@ layout_mode = 2
 
 [node name="Cabin" parent="." instance=ExtResource("11_ya4ey")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 25.0406, -92.1485)
+
+[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.86946, 26.052, -2.97224)
+multimesh = SubResource("MultiMesh_o6xl0")
+
+[node name="Border" type="Node3D" parent="."]
+
+[node name="Cliff" parent="Border" instance=ExtResource("9_choun")]
+transform = Transform3D(0.924155, 0.0142597, -0.381751, 0.124535, 0.933468, 0.336347, 0.361148, -0.358379, 0.860893, 0, 14.8716, 244.839)
+
+[node name="Cliff2" parent="Border" instance=ExtResource("9_choun")]
+transform = Transform3D(0.97799, -0.16963, 0.121496, 0.118508, 0.930839, 0.34568, -0.171731, -0.323673, 0.930454, 86.8424, 14.8716, 244.059)
+
+[node name="Cliff3" parent="Border" instance=ExtResource("9_choun")]
+transform = Transform3D(-0.517722, -0.83971, -0.163863, -0.525695, 0.463335, -0.713419, 0.674988, -0.283211, -0.68131, 329.437, 74.1343, 125.553)
+
+[node name="Cliff4" parent="Border" instance=ExtResource("9_choun")]
+transform = Transform3D(-0.520865, -0.759595, -0.389507, -0.0206623, 0.467374, -0.883818, 0.853389, -0.452302, -0.259134, 292.3, 56.9255, 202.149)
+
+[node name="Cliff5" parent="Border" instance=ExtResource("9_choun")]
+transform = Transform3D(0.76913, -0.304977, 0.56163, 0.124535, 0.933468, 0.336347, -0.626842, -0.188752, 0.755938, 312.725, 47.8437, 92.4178)
+
+[node name="Cliff6" parent="Border" instance=ExtResource("9_choun")]
+transform = Transform3D(0.073246, -0.810884, -0.580606, -0.525695, 0.463335, -0.713419, 0.847514, 0.357477, -0.39234, 314.962, 74.1343, -126.862)
+
+[node name="Cliff7" parent="Border" instance=ExtResource("9_choun")]
+transform = Transform3D(0.191286, -0.865828, -0.462333, -0.0206623, 0.467374, -0.883818, 0.981317, 0.178615, 0.0715123, 339.228, 56.9255, -45.2697)
+
+[node name="Cliff8" parent="Border" instance=ExtResource("9_choun")]
+transform = Transform3D(0.144808, -0.352456, 0.924557, 0.124535, 0.933468, 0.336347, -0.981591, 0.0664344, 0.179066, 280.272, 47.8437, -140.045)
+
+[node name="Cliff9" parent="Border" instance=ExtResource("9_choun")]
+transform = Transform3D(0.901616, -0.162255, -0.40095, -0.386956, 0.111618, -0.915318, 0.193269, 0.980416, 0.037851, 221.522, 52.3313, -284.063)
+
+[node name="Cliff10" parent="Border" instance=ExtResource("9_choun")]
+transform = Transform3D(-0.456711, -0.247012, 0.854635, 0.256936, 0.883115, 0.392548, -0.851704, 0.398867, -0.339862, 104.332, 29.1589, -304.729)
+
+[node name="Cliff11" parent="Border" instance=ExtResource("9_choun")]
+transform = Transform3D(-0.810525, 0.0399357, 0.584341, 0.303129, 0.882267, 0.360166, -0.501161, 0.469055, -0.727205, 91.2726, 44.9656, -321.253)
+
+[node name="Cliff12" parent="Border" instance=ExtResource("9_choun")]
+transform = Transform3D(-0.810525, 0.0399357, 0.584341, 0.322417, 0.86333, 0.388215, -0.488975, 0.503059, -0.712626, -73.8625, 34.7975, -320.811)
+
+[node name="Cliff13" parent="Border" instance=ExtResource("9_choun")]
+transform = Transform3D(0.224495, -0.232004, 0.946455, -0.855917, -0.511243, 0.0776983, 0.465842, -0.82753, -0.313348, -177.023, 121.559, -254.972)
+
+[node name="Cliff14" parent="Border" instance=ExtResource("9_choun")]
+transform = Transform3D(-0.620265, 0.128826, -0.773742, -0.715436, 0.311509, 0.62539, 0.321594, 0.941471, -0.101051, -132.111, 213.907, -346.487)
+
+[node name="Cliff21" parent="Border" instance=ExtResource("9_choun")]
+transform = Transform3D(-0.00911885, 0.334566, 0.942328, 0.768181, 0.605642, -0.207594, -0.640167, 0.721986, -0.26253, -289.632, 132.268, -271.111)
+
+[node name="Cliff15" parent="Border" instance=ExtResource("9_choun")]
+transform = Transform3D(-0.943171, -4.01621e-09, 0.33231, 0.260771, 0.619848, 0.740127, -0.205981, 0.784723, -0.584622, -18.5394, 213.907, -378.967)
+
+[node name="Cliff16" parent="Border" instance=ExtResource("9_choun")]
+transform = Transform3D(-0.505202, -0.379859, -0.774905, -0.859489, 0.140531, 0.491457, -0.0777859, 0.914308, -0.397482, 42.8841, 213.907, -380.563)
+
+[node name="Cliff17" parent="Border" instance=ExtResource("9_choun")]
+transform = Transform3D(-0.45871, -0.105246, 0.882332, 0.503539, 0.787354, 0.355699, -0.732143, 0.607451, -0.308171, 166.542, 146.455, -299.081)
+
+[node name="Cliff18" parent="Border" instance=ExtResource("9_choun")]
+transform = Transform3D(-0.199561, 0.310324, 0.929449, -0.812483, 0.477833, -0.333986, -0.547765, -0.821812, 0.156776, 163.337, 87.2038, -347.608)
+
+[node name="Cliff19" parent="Border" instance=ExtResource("9_choun")]
+transform = Transform3D(-0.199561, 0.310324, 0.929449, -0.812483, 0.477833, -0.333986, -0.547765, -0.821812, 0.156776, 131.833, 154.074, -373.685)
+
+[node name="Cliff20" parent="Border" instance=ExtResource("9_choun")]
+transform = Transform3D(0.770184, -0.586041, -0.251739, -0.471706, -0.257694, -0.84326, 0.429313, 0.768213, -0.474911, 151.498, 175.591, -319.758)
+
+[node name="Cliff22" parent="Border" instance=ExtResource("9_choun")]
+transform = Transform3D(-0.812854, 0.290379, -0.504925, 0.124535, 0.933468, 0.336347, 0.568999, 0.21052, -0.794935, -249.849, 14.8716, -109.628)
+
+[node name="Cliff23" parent="Border" instance=ExtResource("9_choun")]
+transform = Transform3D(-0.812854, 0.290379, -0.504925, 0.124535, 0.933468, 0.336347, 0.568999, 0.21052, -0.794935, -230.111, 43.2355, -363.458)
+
+[node name="Cliff24" parent="Border" instance=ExtResource("9_choun")]
+transform = Transform3D(-0.752826, 0.522329, -0.400532, 0.330897, 0.82635, 0.45569, 0.568999, 0.21052, -0.794935, -268.647, 20.9583, -78.4895)
+
+[node name="Cliff25" parent="Border" instance=ExtResource("9_choun")]
+transform = Transform3D(-0.747392, 0.535587, -0.393131, 0.342994, 0.81782, 0.462089, 0.568999, 0.21052, -0.794935, -331.032, 20.9583, 72.6964)
+
+[node name="Cliff26" parent="Border" instance=ExtResource("9_choun")]
+transform = Transform3D(0.704554, 0.556381, -0.440504, -0.172613, 0.736452, 0.654098, 0.688337, -0.384811, 0.614908, -331.032, 20.9583, 173.14)
+
+[node name="Cliff27" parent="Border" instance=ExtResource("9_choun")]
+transform = Transform3D(0.704554, 0.556381, -0.440504, -0.085521, 0.682779, 0.725603, 0.704478, -0.473555, 0.528637, -228.451, 20.9583, 236.135)
+
+[node name="Cliff28" parent="Border" instance=ExtResource("9_choun")]
+transform = Transform3D(-0.706428, 0.0833654, 0.702859, -0.173855, 0.942178, -0.286489, -0.6861, -0.32458, -0.651087, -270.46, 98.5976, 371.302)
+
+[node name="Cliff29" parent="Border" instance=ExtResource("9_choun")]
+transform = Transform3D(0.918417, 0.0942726, -0.384218, -0.000446574, 0.97144, 0.237287, 0.395614, -0.217756, 0.892228, -208.61, 21.4555, 265.973)
+
+[node name="Cliff30" parent="Border" instance=ExtResource("9_choun")]
+transform = Transform3D(0.207831, -0.232015, 0.95025, -0.000446578, 0.97144, 0.237287, -0.978165, -0.0497402, 0.201792, 190.549, 2.16945, -159.282)
+
+[node name="Cliff31" parent="Border" instance=ExtResource("9_choun")]
+transform = Transform3D(0.207831, -0.232015, 0.95025, -0.000446578, 0.97144, 0.237287, -0.978165, -0.0497402, 0.201792, 152.418, -0.763187, -186.273)
