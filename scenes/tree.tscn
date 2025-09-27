@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6olu2cfm8on2"]
+
+[ext_resource type="ArrayMesh" uid="uid://ct0k4jxlj35yh" path="res://assets/tree.tres" id="1_avsvi"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_5yujg"]
+size = Vector2(100, 100)
+
+[node name="Tree" type="Node3D"]
+
+[node name="island_tree_01_1k" type="Node3D" parent="."]
+
+[node name="island_tree_01_LOD0" type="MeshInstance3D" parent="island_tree_01_1k"]
+lod_bias = 0.2
+visibility_range_end = 25.0
+mesh = ExtResource("1_avsvi")
+skeleton = NodePath("")
+
+[node name="Sprite3D" type="Sprite3D" parent="island_tree_01_1k"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.074394, 0.206834, 0.445642)
+visibility_range_begin = 25.0
+billboard = 1
+texture = SubResource("PlaceholderTexture2D_5yujg")

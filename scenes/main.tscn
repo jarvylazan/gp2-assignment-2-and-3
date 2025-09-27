@@ -1,0 +1,146 @@
+[gd_scene load_steps=18 format=3 uid="uid://dtkaookv54wgq"]
+
+[ext_resource type="Script" uid="uid://cli8w5up6kf1v" path="res://scripts/change_resolution.gd" id="1_eb6dy"]
+[ext_resource type="Texture2D" uid="uid://kfhw8xqoioro" path="res://assets/qwantani_noon_puresky_2k.hdr" id="1_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://dfkkul8dmnwmb" path="res://assets/plankflooring/plank_flooring_diff_1k.png" id="2_tefeu"]
+[ext_resource type="Texture2D" uid="uid://josw2tgtt4qo" path="res://assets/plankflooring/plank_flooring_ao_1k.png" id="3_o6xl0"]
+[ext_resource type="Texture2D" uid="uid://b3iv7ykw4221y" path="res://assets/plankflooring/plank_flooring_nor_gl_1k.png" id="4_tipki"]
+[ext_resource type="Texture2D" uid="uid://dvaydp0k05jh7" path="res://assets/plankflooring/plank_flooring_rough_1k.png" id="5_85g3d"]
+[ext_resource type="Script" uid="uid://dp6r1yxi4xh7t" path="res://camera/free_look_camera.gd" id="6_tefeu"]
+[ext_resource type="PackedScene" uid="uid://b6olu2cfm8on2" path="res://scenes/tree.tscn" id="7_o6xl0"]
+[ext_resource type="MeshLibrary" uid="uid://d1v48f05i0a2n" path="res://world/geometrymeshes.tres" id="8_tipki"]
+[ext_resource type="Script" uid="uid://iht3err0y2wp" path="res://scripts/performance_tracker.gd" id="9_85g3d"]
+[ext_resource type="PackedScene" uid="uid://sr7j2rsknn7v" path="res://scenes/cabin.tscn" id="11_ya4ey"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_choun"]
+panorama = ExtResource("1_tbgi4")
+
+[sub_resource type="Sky" id="Sky_ya4ey"]
+sky_material = SubResource("PanoramaSkyMaterial_choun")
+
+[sub_resource type="Environment" id="Environment_eb6dy"]
+background_mode = 2
+sky = SubResource("Sky_ya4ey")
+tonemap_mode = 2
+ssr_enabled = true
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_trceg"]
+albedo_texture = ExtResource("2_tefeu")
+roughness_texture = ExtResource("5_85g3d")
+normal_enabled = true
+normal_texture = ExtResource("4_tipki")
+ao_enabled = true
+ao_texture = ExtResource("3_o6xl0")
+uv1_scale = Vector3(250, 250, 250)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_a8y0u"]
+material = SubResource("StandardMaterial3D_trceg")
+top_radius = 350.0
+bottom_radius = 400.0
+height = 50.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ya4ey"]
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_eb6dy")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_eb6dy")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.0571807, 0.998364, 0, -0.998364, -0.0571807, 0, 32.0307, 0)
+shadow_enabled = true
+
+[node name="WoodenFloor" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_a8y0u")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 56.2584, 0)
+script = ExtResource("6_tefeu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D"]
+mesh = SubResource("CapsuleMesh_ya4ey")
+
+[node name="Trees" type="Node3D" parent="."]
+
+[node name="Tree" parent="Trees" instance=ExtResource("7_o6xl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24.9529, 0)
+
+[node name="Tree2" parent="Trees" instance=ExtResource("7_o6xl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24.9529, 4.45071)
+
+[node name="Tree3" parent="Trees" instance=ExtResource("7_o6xl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24.9529, -4.50971)
+
+[node name="Tree4" parent="Trees" instance=ExtResource("7_o6xl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.3868, 24.9529, 0)
+
+[node name="Tree5" parent="Trees" instance=ExtResource("7_o6xl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.3868, 24.9529, 4.45071)
+
+[node name="Tree6" parent="Trees" instance=ExtResource("7_o6xl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.3868, 24.9529, -4.50971)
+
+[node name="Tree7" parent="Trees" instance=ExtResource("7_o6xl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.65136, 25.0571, 17.133)
+
+[node name="Tree8" parent="Trees" instance=ExtResource("7_o6xl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.65136, 25.0571, 21.5837)
+
+[node name="Tree9" parent="Trees" instance=ExtResource("7_o6xl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.65136, 25.0571, 12.6233)
+
+[node name="Tree10" parent="Trees" instance=ExtResource("7_o6xl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.0381, 25.0571, 17.133)
+
+[node name="Tree11" parent="Trees" instance=ExtResource("7_o6xl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.0381, 25.0571, 21.5837)
+
+[node name="Tree12" parent="Trees" instance=ExtResource("7_o6xl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.0381, 25.0571, 12.6233)
+
+[node name="GridMap" type="GridMap" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24.953, 0)
+mesh_library = ExtResource("8_tipki")
+cell_size = Vector3(1, 1, 1)
+
+[node name="PerformanceUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("9_85g3d")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="PerformanceUI"]
+
+[node name="MarginContainer" type="MarginContainer" parent="PerformanceUI/CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PerformanceUI/CanvasLayer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PerformanceUI/CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="PerformanceUI/CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="PerformanceUI/CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="PerformanceUI/CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label5" type="Label" parent="PerformanceUI/CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label6" type="Label" parent="PerformanceUI/CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label7" type="Label" parent="PerformanceUI/CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Cabin" parent="." instance=ExtResource("11_ya4ey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 25.0406, -92.1485)
