@@ -97,14 +97,14 @@ material = SubResource("StandardMaterial3D_theev")
 [node name="Fire" type="Node3D"]
 
 [node name="Fire" type="GPUParticles3D" parent="."]
-amount = 500
+amount = 300
 randomness = 1.0
 process_material = SubResource("ParticleProcessMaterial_72x1i")
 draw_pass_1 = SubResource("QuadMesh_xqmqg")
 
 [node name="Smoke" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.370882, 0)
-amount = 500
+amount = 300
 lifetime = 5.0
 process_material = SubResource("ParticleProcessMaterial_10wrr")
 draw_pass_1 = SubResource("QuadMesh_3l77w")
