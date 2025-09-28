@@ -67,6 +67,7 @@ environment = SubResource("Environment_eb6dy")
 transform = Transform3D(-0.940532, -0.313797, 0.130119, -0.160491, 0.74805, 0.643944, -0.299403, 0.584767, -0.753927, -0.000932693, 39.0134, -0.0159912)
 light_energy = 1.5
 shadow_enabled = true
+directional_shadow_mode = 0
 directional_shadow_max_distance = 80.0
 
 [node name="WoodenFloor" type="MeshInstance3D" parent="."]
