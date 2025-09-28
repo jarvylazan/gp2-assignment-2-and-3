@@ -9,7 +9,7 @@
 transform = Transform3D(4.5, 0, 0, 0, 4.5, 0, 0, 0, 4.5, 0, 0, 0)
 
 [node name="island_tree_01_LOD0" type="MeshInstance3D" parent="island_tree_01_1k"]
-lod_bias = 0.2
+lod_bias = 0.001
 visibility_range_end = 100.0
 mesh = ExtResource("1_avsvi")
 

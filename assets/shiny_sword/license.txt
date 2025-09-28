@@ -1,0 +1,11 @@
+Model Information:
+* title:	Shiny Sword
+* source:	https://sketchfab.com/3d-models/shiny-sword-988806b98d55400ca354f30326c85d3a
+* author:	Banji3001 (https://sketchfab.com/Banji3001)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Shiny Sword" (https://sketchfab.com/3d-models/shiny-sword-988806b98d55400ca354f30326c85d3a) by Banji3001 (https://sketchfab.com/Banji3001) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

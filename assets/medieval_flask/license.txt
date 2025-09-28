@@ -1,0 +1,11 @@
+Model Information:
+* title:	Medieval Flask
+* source:	https://sketchfab.com/3d-models/medieval-flask-12c92e2d3bf645178776030d6e45bc10
+* author:	Austin Crane (Euclid) (https://sketchfab.com/Euclid)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Medieval Flask" (https://sketchfab.com/3d-models/medieval-flask-12c92e2d3bf645178776030d6e45bc10) by Austin Crane (Euclid) (https://sketchfab.com/Euclid) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
