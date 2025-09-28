@@ -6,15 +6,16 @@
 [node name="Tree" type="Node3D"]
 
 [node name="island_tree_01_1k" type="Node3D" parent="."]
+transform = Transform3D(4.5, 0, 0, 0, 4.5, 0, 0, 0, 4.5, 0, 0, 0)
 
 [node name="island_tree_01_LOD0" type="MeshInstance3D" parent="island_tree_01_1k"]
 lod_bias = 0.2
-visibility_range_end = 25.0
+visibility_range_end = 100.0
 mesh = ExtResource("1_avsvi")
 
 [node name="Sprite3D" type="Sprite3D" parent="island_tree_01_1k"]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 2.41618, 0)
-visibility_range_begin = 25.0
-modulate = Color(0.43134, 0.43134, 0.43134, 1)
+visibility_range_begin = 100.0
+modulate = Color(0.703808, 0.703808, 0.703807, 1)
 billboard = 1
 texture = ExtResource("2_vplca")

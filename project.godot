@@ -22,7 +22,7 @@ settings/stdout/print_fps=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/proton_scatter/plugin.cfg")
+enabled=PackedStringArray()
 
 [filesystem]
 
@@ -47,4 +47,5 @@ increase_resolution={
 
 [rendering]
 
+renderer/rendering_method="mobile"
 occlusion_culling/use_occlusion_culling=true
